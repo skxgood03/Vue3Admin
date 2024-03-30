@@ -14,11 +14,18 @@ import '@/styles/index.scss'
 // 引入路由
 
 import router from "./router/index";
+/* 引入createPinia，用于创建pinia */
+import { createPinia } from 'pinia'
+
+
 const app = createApp(App)
 app.use(ElementPlus, {
     locale: zhCn
 })
 
+/* 创建pinia */
+const pinia = createPinia()
+app.use(pinia);
 app.use(gloablComponent);
 // 注册路由
 app.use(router)

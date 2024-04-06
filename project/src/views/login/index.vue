@@ -48,8 +48,9 @@ let $router = useRouter()
 
 // 定义自定义校验规则函数
 const validatorUserName = (rule:any,value: any, callback: any) => {
+    
     // value输入的值，callback成功需要调用的函数
-    if (value.lenght >= 5) {
+    if (value.length>= 3) {
         callback();
     } else {
         callback(new Error('账号至少5位'))
@@ -70,7 +71,7 @@ const rules = reactive<FormRules<loginForm>>({
     ],
     password: [
         { required: true, message: '请输入密码', trigger: 'change' },
-        { min: 3, max: 5, message: '用户名长度应为3~5', trigger: 'change' },
+        { min: 3, max: 9, message: '用户名长度应为3~9', trigger: 'change' },
     ],
 
 })

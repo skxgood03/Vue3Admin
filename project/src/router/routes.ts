@@ -12,7 +12,7 @@ export const constantRoutes = [
     },
     {
         path: "/",
-        component: () => import('@/views/home/index.vue'),
+        component: () => import('@/layout/index.vue'),
         name: "layout", //路由命名
     },
     // 任意路由(所有路由没匹配到走这个)

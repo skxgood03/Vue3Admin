@@ -8,15 +8,7 @@
             <el-scrollbar class="scrollbar">
                 <!-- 菜单 -->
                 <el-menu background-color=$base-menu-background text-color='white'>
-                    <el-menu-item index="1">首页</el-menu-item>
-                    <el-menu-item index="2">数据大屏</el-menu-item>
-                    <!-- 折叠菜单 -->
-                    <el-sub-menu index="3">
-                        <template #title>权限管理</template>
-                        <el-menu-item index="2-1">用户</el-menu-item>
-                        <el-menu-item index="2-2">角色</el-menu-item>
-                        <el-menu-item index="2-3">权限</el-menu-item>
-                    </el-sub-menu>
+                    <Meun :menuList="meunRoutes.meunRoutes"></Meun>
                 </el-menu>
             </el-scrollbar>
         </div>
@@ -24,14 +16,16 @@
         <div class="layout_tabbar">456</div>
         <!-- 内容展示区域 -->
         <div class="layout_main">
-            <h4 style="background: red; height: 10000px;">吾问无为谓</h4>
+            <h4 style="background: red; height: 10000px;"></h4>
         </div>
 
     </div>
 </template>
 <script setup lang='ts'>
 import logo from './logo/index.vue'
-
+import { userLoginStore } from '@/store/modules/user'
+import Meun from './meun/index.vue'
+let meunRoutes = userLoginStore()
 </script>
 <style scoped lang='scss'>
 .layout_container {
@@ -48,6 +42,10 @@ import logo from './logo/index.vue'
             width: $base-menu-width;
             height: calc(100vh - $base-menu-logo-height);
             color: aliceblue;
+
+            .el-menu {
+                border-right: none;
+            }
         }
     }
 

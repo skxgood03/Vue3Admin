@@ -7,6 +7,9 @@ import type { UserState } from './types/type';
 // 引入登录api
 import { reqLogin } from '@/api/user/index'
 import { GETTOKEN, SETTOKEN } from '@/utils/token'
+// 导入常量路由
+import {constantRoutes} from '@/router/routes'
+
 // 定义并暴露一个store
 export const userLoginStore = defineStore('user', {
 
@@ -18,7 +21,8 @@ export const userLoginStore = defineStore('user', {
                 password: "111111"
             },
             // 从本地获取用户token
-            token: GETTOKEN()
+            token: GETTOKEN(),
+            meunRoutes:constantRoutes
         }
     },
 
